@@ -15,8 +15,11 @@ class Board extends Component {
 
   handleClick(i) {
     const board = [...this.state.board];
-    board[i] = "red";
-    this.setState({ board });
+    if (board[i] === "blue") {
+      board[i] = "red";
+      this.setState({ board });
+    }
+    return;
   }
 
   componentDidMount() {
