@@ -1,7 +1,13 @@
 import React from "react";
 
-const Square = props => {
-  return <button className="square" />;
+const Square = ({ color, onClick }) => {
+  return (
+    <button
+      style={{ backgroundColor: color }}
+      onClick={onClick}
+      className="square"
+    />
+  );
 };
 
 export default Square;

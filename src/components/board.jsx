@@ -13,6 +13,12 @@ class Board extends Component {
     hardMode: 15
   };
 
+  handleClick(i) {
+    const board = [...this.state.board];
+    board[i] = "red";
+    this.setState({ board });
+  }
+
   componentDidMount() {
     const field = this.gameMode[this.state.mode];
     const board = Array(field * field).fill(null);
@@ -30,8 +36,14 @@ class Board extends Component {
     return (
       <div className="board_wrap">
         <div className={boardClass}>
-          {board.map((square, index) => {
-            return <Square key={index} />;
+          {board.map((color, index) => {
+            return (
+              <Square
+                key={index}
+                color={color}
+                onClick={() => this.handleClick(index)}
+              />
+            );
           })}
         </div>
       </div>
