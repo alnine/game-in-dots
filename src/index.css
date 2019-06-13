@@ -57,3 +57,20 @@ code {
   width: 30px;
   height: 30px;
 }
+
+.leader_wrap {
+  display: flex;
+  padding: 0 35px;
+  flex-direction: column;
+  min-width: 450px;
+}
+
+.leader {
+  display: flex;
+  margin-bottom: 5px;
+  padding: 15px;
+  justify-content: space-between;
+  font-size: 20px;
+  background-color: #999999;
+  color: #ffffff;
+}
