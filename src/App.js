@@ -5,7 +5,7 @@ import Leaders from "./components/leaders";
 
 function App() {
   return (
-    <div className="container">
+    <div className="container bg-white">
       <div className="row">
         <div className="col-lg">
           <SettingBar />

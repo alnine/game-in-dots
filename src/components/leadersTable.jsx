@@ -5,7 +5,7 @@ const LeadersTable = ({ data: leaders }) => {
   return (
     <React.Fragment>
       {leaders.map(leader => (
-        <LeaderRow data={leader} />
+        <LeaderRow key={leader.id} data={leader} />
       ))}
     </React.Fragment>
   );

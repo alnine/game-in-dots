@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #eeeeee;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -14,12 +15,19 @@ code {
 
 .container {
   min-width: 500px;
+  padding-top: 70px;
+  min-height: 100vh;
+}
+
+.form-row {
+  margin-bottom: 40px;
 }
 
 .board_wrap {
   display: flex;
   flex-direction: column;
   min-width: 320px;
+  margin-bottom: 25px;
 }
 
 .board {
@@ -60,7 +68,6 @@ code {
 
 .leader_wrap {
   display: flex;
-  padding: 0 35px;
   flex-direction: column;
   min-width: 450px;
 }
@@ -68,7 +75,7 @@ code {
 .leader {
   display: flex;
   margin-bottom: 5px;
-  padding: 15px;
+  padding: 10px 15px;
   justify-content: space-between;
   font-size: 20px;
   background-color: #999999;
