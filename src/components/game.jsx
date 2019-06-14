@@ -1,34 +1,26 @@
 import React, { Component } from "react";
+import { getSettings, getLeaders } from "../services/http-service";
 import SettingBar from "./setting-bar";
 import Board from "./board";
 import Leaders from "./leaders";
 
 class Game extends Component {
   state = {
-    mode: "easyMode",
+    mode: "",
     board: [],
     playerName: "",
-    settings: {
-      easyMode: {
-        field: 5,
-        delay: 2000
-      },
-      normalMode: {
-        field: 10,
-        delay: 1000
-      },
-      hardMode: {
-        field: 15,
-        delay: 900
-      }
-    }
+    settings: {},
+    leaders: []
   };
 
-  componentDidMount() {
-    const { mode, settings } = this.state;
-    const board = this.calculateBoard(settings[mode].field);
+  async componentDidMount() {
+    const defaultMode = "easyMode";
+    const settings = await getSettings();
+    const leaders = await getLeaders();
 
-    this.setState({ board });
+    const board = this.calculateBoard(settings[defaultMode].field);
+
+    this.setState({ board, settings, mode: defaultMode, leaders });
   }
 
   calculateBoard = size => {
@@ -61,7 +53,7 @@ class Game extends Component {
   };
 
   render() {
-    const { board, mode, settings, playerName } = this.state;
+    const { board, mode, settings, playerName, leaders } = this.state;
     const modes = Object.keys(settings);
 
     let boardClass = "board";
@@ -86,7 +78,7 @@ class Game extends Component {
             />
           </div>
           <div className="col-lg">
-            <Leaders />
+            <Leaders data={leaders} />
           </div>
         </div>
       </div>
