@@ -1,22 +1,8 @@
 import React from "react";
-import SettingBar from "./components/setting-bar";
-import Board from "./components/board";
-import Leaders from "./components/leaders";
+import Game from "./components/game";
 
 function App() {
-  return (
-    <div className="container bg-white">
-      <div className="row">
-        <div className="col-lg">
-          <SettingBar />
-          <Board />
-        </div>
-        <div className="col-lg">
-          <Leaders />
-        </div>
-      </div>
-    </div>
-  );
+  return <Game />;
 }
 
 export default App;

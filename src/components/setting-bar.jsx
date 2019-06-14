@@ -1,18 +1,15 @@
 import React from "react";
-import Button from "./common/button";
-import Input from "./common/input";
 import Select from "./common/select";
+import Input from "./common/input";
+import Button from "./common/button";
 
-const SettingBar = props => {
-  const options = ["Easy", "Normal", "Hard"];
+const SettingBar = ({ onChange }) => {
+  const options = ["easyMode", "normalMode", "hardMode"];
+
   return (
     <div className="form-row">
       <div className="col-5">
-        <Select
-          options={options}
-          label="Pick game mode"
-          classes="btn btn-light btn-block"
-        />
+        <Select options={options} label="Pick game mode" onChange={onChange} />
       </div>
       <div className="col-5">
         <Input type="text" classes="form-control" label="Enter your name" />
