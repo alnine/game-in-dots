@@ -7,6 +7,7 @@ class Game extends Component {
   state = {
     mode: "easyMode",
     board: [],
+    playerName: "",
     settings: {
       easyMode: {
         field: 5,
@@ -54,8 +55,14 @@ class Game extends Component {
     this.setState({ mode, board });
   };
 
+  handleChangeOnInput = e => {
+    const name = e.target.value;
+    this.setState({ playerName: name });
+  };
+
   render() {
-    const { board, mode } = this.state;
+    const { board, mode, settings, playerName } = this.state;
+    const modes = Object.keys(settings);
 
     let boardClass = "board";
     if (mode !== "easyMode") {
@@ -66,7 +73,12 @@ class Game extends Component {
       <div className="container bg-white">
         <div className="row">
           <div className="col-lg">
-            <SettingBar onChange={this.handleChangeOnSelect} />
+            <SettingBar
+              modes={modes}
+              player={playerName}
+              onSelectChange={this.handleChangeOnSelect}
+              onInputChange={this.handleChangeOnInput}
+            />
             <Board
               data={board}
               classes={boardClass}
