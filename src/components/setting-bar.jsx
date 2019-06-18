@@ -3,7 +3,13 @@ import Select from "./common/select";
 import Input from "./common/input";
 import Button from "./common/button";
 
-const SettingBar = ({ modes, player, onSelectChange, onInputChange }) => {
+const SettingBar = ({
+  modes,
+  player,
+  onSelectChange,
+  onInputChange,
+  onPlayClick
+}) => {
   return (
     <div className="form-row">
       <div className="col-5">
@@ -23,7 +29,12 @@ const SettingBar = ({ modes, player, onSelectChange, onInputChange }) => {
         />
       </div>
       <div className="col">
-        <Button type="button" classes="btn btn-dark btn-block" label="Play" />
+        <Button
+          type="button"
+          classes="btn btn-dark btn-block"
+          label="Play"
+          onClick={onPlayClick}
+        />
       </div>
     </div>
   );
